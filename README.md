@@ -24,7 +24,7 @@ self.tableView.setTableHeaderView(headerView: self.tableView.tableHeaderView!)
 self.tableView.updateHeaderViewFrame()
 ```
 
-2. (Optional) In viewWillTransition(to size: with coordinator:)
+2. (If you want to handle device rotation) In viewWillTransition(to size: with coordinator:)
 ```swift
 override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
     super.viewWillTransition(to: size, with: coordinator)

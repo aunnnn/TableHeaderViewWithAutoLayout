@@ -11,14 +11,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomTableHeaderView" customModule="TableHeaderViewWithAutoLayout" customModuleProvider="target">
+        <view opaque="NO" alpha="0.5" contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomTableHeaderView" customModule="TableHeaderViewWithAutoLayout" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="372" height="264"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doesn't matter if this is multi-line label, since we can use AutoLayout!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICm-eq-vsr">
                     <rect key="frame" x="0.0" y="0.0" width="372" height="76"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.99215686270000003" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerview.png" translatesAutoresizingMaskIntoConstraints="NO" id="xM1-mH-gFs">
@@ -28,7 +28,7 @@
                     </constraints>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.78823529410000004" green="0.098039215690000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="xM1-mH-gFs" secondAttribute="bottom" constant="20" id="DzI-eT-Gai"/>
                 <constraint firstItem="ICm-eq-vsr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GeI-fJ-ATi"/>

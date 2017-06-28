@@ -12,5 +12,4 @@ class CustomTableHeaderView: UIView {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-
 }

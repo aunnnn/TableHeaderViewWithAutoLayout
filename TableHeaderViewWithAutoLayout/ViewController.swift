@@ -17,35 +17,32 @@ class ViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseId")
         tableView.backgroundColor = .lightGray
         
         let customView = Bundle.main.loadNibNamed("\(CustomTableHeaderView.self)", owner: nil, options: nil)!.first as! CustomTableHeaderView
-        customView.label.text = "This red view is tableHeaderView. Try rotating the device, finally it works!"
+        customView.label.text = "This red view is tableHeaderView set programmatically. Try rotating the device, finally the Autolayout works!"
         customView.imageView.image = #imageLiteral(resourceName: "headerview.png")
         customView.layer.borderColor = UIColor.blue.cgColor
         customView.layer.borderWidth = 2
 
-        // 1.
-        self.tableView.setTableHeaderView(headerView: customView, rootView: self.view)
+        // 1. Set table header view programmatically
+        self.tableView.setTableHeaderView(headerView: customView)
+        
+        // 2. Set initial frame
+        self.tableView.updateHeaderViewFrame()
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    // View size is changed (e.g., device is rotated.)
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
-        var needUpdate = false
-        
-        // 2.
-        needUpdate = self.tableView.shouldUpdateHeaderViewFrame()
-        
-        //
-        // ...You may need to do begin/endUpdates due to other reasons.
-        //
-        
-        // Update once in the end
-        if needUpdate {
-            self.tableView.beginUpdates()
-            self.tableView.endUpdates()
+        // 3. Update header view's frmame
+        DispatchQueue.main.async {
+            self.tableView.updateHeaderViewFrame()
         }
     }
 }
@@ -57,37 +54,21 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseId", for: indexPath)
-        cell.textLabel?.text = "Index \(indexPath)"
+        cell.textLabel?.numberOfLines = 0
+        
+        if indexPath.row == 0 {
+            cell.textLabel?.text = "Tap to view an example using UITableViewController (storyboard)"
+        } else {
+            cell.textLabel?.text = "Dummy Index \(indexPath)"
+        }
         return cell
     }
-}
-
-extension UITableView {
     
-    func setTableHeaderView(headerView: UIView, rootView: UIView) {
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-
-        // Set first.
-        self.tableHeaderView = headerView
-        
-        // Then setup AutoLayout.
-        headerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        headerView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        headerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            let tbv = storyboard!.instantiateViewController(withIdentifier: "tableViewController")
+            self.show(tbv, sender: nil)
+        }
     }
     
-    func shouldUpdateHeaderViewFrame() -> Bool {
-        guard let headerView = self.tableHeaderView else { return false }
-        let oldSize = headerView.bounds.size
-
-        // Update the size of the header based on its internal content.
-        headerView.layoutIfNeeded()
-        let newSize = headerView.bounds.size
-        
-        // Trigger table view to know that header should be updated.
-        let header = self.tableHeaderView
-        self.tableHeaderView = header
-        
-        return oldSize != newSize
-    }
 }

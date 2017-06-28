@@ -15,6 +15,8 @@
 		307456BC1EE6D21700973FA4 /* CustomTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307456BB1EE6D21700973FA4 /* CustomTableHeaderView.swift */; };
 		307456BE1EE6D22100973FA4 /* CustomTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307456BD1EE6D22100973FA4 /* CustomTableHeaderView.xib */; };
 		307456C01EE6D57000973FA4 /* headerview.png in Resources */ = {isa = PBXBuildFile; fileRef = 307456BF1EE6D57000973FA4 /* headerview.png */; };
+		30F73D671F03752300309B6E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F73D661F03752300309B6E /* TableViewController.swift */; };
+		30F73D691F037A1000309B6E /* TableHeaderView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F73D681F037A1000309B6E /* TableHeaderView+AutoLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		307456BB1EE6D21700973FA4 /* CustomTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableHeaderView.swift; sourceTree = "<group>"; };
 		307456BD1EE6D22100973FA4 /* CustomTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableHeaderView.xib; sourceTree = "<group>"; };
 		307456BF1EE6D57000973FA4 /* headerview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headerview.png; sourceTree = "<group>"; };
+		30F73D661F03752300309B6E /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		30F73D681F037A1000309B6E /* TableHeaderView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableHeaderView+AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				307456BF1EE6D57000973FA4 /* headerview.png */,
+				30F73D681F037A1000309B6E /* TableHeaderView+AutoLayout.swift */,
 				307456A91EE6D12700973FA4 /* AppDelegate.swift */,
 				307456AB1EE6D12700973FA4 /* ViewController.swift */,
+				30F73D661F03752300309B6E /* TableViewController.swift */,
 				307456AD1EE6D12700973FA4 /* Main.storyboard */,
 				307456BB1EE6D21700973FA4 /* CustomTableHeaderView.swift */,
 				307456BD1EE6D22100973FA4 /* CustomTableHeaderView.xib */,
@@ -151,6 +157,8 @@
 				307456BC1EE6D21700973FA4 /* CustomTableHeaderView.swift in Sources */,
 				307456AC1EE6D12700973FA4 /* ViewController.swift in Sources */,
 				307456AA1EE6D12700973FA4 /* AppDelegate.swift in Sources */,
+				30F73D671F03752300309B6E /* TableViewController.swift in Sources */,
+				30F73D691F037A1000309B6E /* TableHeaderView+AutoLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +324,7 @@
 				307456BA1EE6D12700973FA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

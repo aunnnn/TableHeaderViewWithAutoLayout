@@ -23,27 +23,15 @@ extension UITableView {
         headerView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
     }
     
-    /// Enquire whether header view frame is changed.
-    func shouldUpdateHeaderViewFrame() -> Bool {
-        guard let headerView = self.tableHeaderView else { return false }
-        let oldSize = headerView.bounds.size
+    /// Update header view's frame.
+    func updateHeaderViewFrame() {
+        guard let headerView = self.tableHeaderView else { return }
         
         // Update the size of the header based on its internal content.
         headerView.layoutIfNeeded()
-        let newSize = headerView.bounds.size
         
-        // Trigger table view to know that header should be updated.
+        // ***Trigger table view to know that header should be updated.
         let header = self.tableHeaderView
         self.tableHeaderView = header
-        
-        return oldSize != newSize
-    }
-    
-    /// Update header view's frame immediately.
-    func updateHeaderViewFrame() {
-        if self.shouldUpdateHeaderViewFrame() {
-            self.beginUpdates()
-            self.endUpdates()
-        }
     }
 }

@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         tableView.backgroundColor = .lightGray
         
         let customView = Bundle.main.loadNibNamed("\(CustomTableHeaderView.self)", owner: nil, options: nil)!.first as! CustomTableHeaderView
-        customView.label.text = "This red view is tableHeaderView.\n\nNow it doesn't matter how many lines in this label we have, since we can use AutoLayout!.\n\nTry rotating the device, it should update correctly. \n\nRead it in more details at https://medium.com/@aunnnn/table-header-view-with-autolayout-13de4cfc4343"
+        customView.label.text = "This red view is tableHeaderView. Try rotating the device, finally it works!"
         customView.imageView.image = #imageLiteral(resourceName: "headerview.png")
         customView.layer.borderColor = UIColor.blue.cgColor
         customView.layer.borderWidth = 2
